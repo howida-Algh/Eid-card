@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بطاقة عيد الفطر - مستشفى شرق جدة</title>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<style>
+body {
+font-family: 'Tahoma', sans-serif;
+text-align: center;
+background: #f4f7f9;
+padding: 20px;
+}
+
+.card {
+width: 400px;
+height: 500px;
+margin: auto;
+background: linear-gradient(135deg, #0f6c81, #0aa3c2);
+border-radius: 25px;
+color: white;
+padding: 30px;
+position: relative;
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.logo {
+width: 120px;
+margin-bottom: 20px;
+}
+
+h1 {
+font-size: 26px;
+margin: 10px 0;
+}
+
+p {
+font-size: 16px;
+line-height: 1.8;
+}
+
+.name {
+margin-top: 20px;
+font-size: 20px;
+font-weight: bold;
+}
+
+input {
+margin-top: 25px;
+padding: 10px;
+width: 250px;
+border-radius: 12px;
+border: none;
+text-align: center;
+}
+
+button {
+margin-top: 15px;
+padding: 10px 20px;
+border-radius: 12px;
+border: none;
+cursor: pointer;
+font-size: 14px;
+}
+
+.download {
+background: #ffffff;
+color: #0f6c81;
+font-weight: bold;
+}
+
+.generate {
+background: #ffd700;
+color: #0f6c81;
+font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+<img src="logo.png" class="logo">
+<h1>عيد فطر مبارك 🌙</h1>
+<p>
+كل عام وأنتم بخير بمناسبة عيد الفطر المبارك،<br>
+تقبل الله منا ومنكم صالح الأعمال.
+</p>
+<div class="name" id="displayName"></div>
+</div>
+
+<input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+<br>
+<button class="generate" onclick="addName()">إضافة الاسم</button>
+<br>
+<button class="download" onclick="downloadCard()">تحميل البطاقة</button>
+
+<script>
+function addName() {
+var name = document.getElementById("nameInput").value;
+document.getElementById("displayName").innerHTML =
+"مع أطيب الأمنيات، " + name;
+}
+
+function downloadCard() {
+html2canvas(document.getElementById("card")).then(canvas => {
+var link = document.createElement("a");
+link.download = "Eid-Card-East-Jeddah-Hospital.png";
+link.href = canvas.toDataURL();
+link.click();
+});
+}
+</script>
+
+</body>
+</html>
